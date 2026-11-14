@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — which pre-token protocol to farm next</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="dot"></span>TOKEN LAUNCH RADAR</div>
+  <div class="sub">Every protocol that <b>records no token yet</b>, ranked by what its launch would be worth — and how to farm it. Snapshot <span id="asof"></span>. Implied values are this entry's own claim, not a prediction that a token will launch.</div>
+</header>
+<main>
+<section class="cards" id="stats"></section>
+<section class="model box">
+  <h2>How the value is worked out</h2>
+  <p id="modeltext"></p>
+  <p class="fine">Multiple per category = median <i>mcap / TVL</i> of the snapshot's own token-bearing protocols in that category (global median fallback). Growth = 7-day TVL change clamped to −60…+120%. Maturity rises with how long a protocol has run with no token. No protocol name is ever special-cased — the same formula scores every row.</p>
+</section>
+<section class="controls box">
+  <input id="q" type="search" placeholder="Search name or slug…" aria-label="Search">
+  <select id="cat" aria-label="Category filter"><option value="">All categories</option></select>
+  <select id="chain" aria-label="Chain filter"><option value="">All chains</option></select>
+  <label class="tog"><input id="wl" type="checkbox"> Watchlist only</label>
+  <button id="reset" type="button">Reset</button>
+  <span id="count" class="count"></span>
+</section>
+<section id="view"></section>
+<section class="box live">
+  <h2>Already launched — live tokens, kept apart</h2>
+  <p class="fine">These protocols already record a token, so they are <b>not</b> on the ranked board. Shown at the market's own value (market cap), never at a modelled value.</p>
+  <table id="livetab"><thead><tr><th>Protocol</th><th>Category</th><th>TVL</th><th>Market cap</th><th>7d</th></tr></thead><tbody></tbody></table>
+</section>
+<footer class="fine">Source: DefiLlama protocols snapshot, sealed for this competition. “Records no token” means the snapshot's record carries no token — it is not proof a protocol has none. Farm plans are the entry's own suggestions, not financial advice.</footer>
+</main>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
